@@ -21,7 +21,7 @@ cd oceancvbench
 pip install -e .
 ```
 
-### Option 2: Install via pip
+### Option 2: Install via pip (Coming soon!)
 
 ```bash
 pip install oceancvbench
