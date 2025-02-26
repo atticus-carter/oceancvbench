@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oceancvbench"
+dynamic = ["version"]
+description = "Benchmarking toolkit for marine computer vision models"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+authors = [
+  {name = "OceanCVBench Team", email = "info@oceancvbench.org"}
+]
+keywords = ["computer vision", "marine", "benchmark", "underwater", "machine learning"]
+
+[project.urls]
+Repository = "https://github.com/oceancvbench/oceancvbench"
+Documentation = "https://oceancvbench.readthedocs.io"
+"Bug Tracker" = "https://github.com/oceancvbench/oceancvbench/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py37", "py38", "py39", "py310"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3

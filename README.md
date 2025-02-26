@@ -1,12 +1,16 @@
 # OceanCVBench
-OceanCVBench is a comprehensive toolkit for underwater computer vision tasks, specializing in object detection with YOLO model integration. It provides tools for data preprocessing, analysis, and model evaluation specifically designed for underwater imagery. Built by the team at [oceancv.org](https://oceancv.org)
 
-## Key Features
+A benchmarking toolkit for marine computer vision models.
 
-- **Data Preprocessing**: Tools to handle class imbalance, generate synthetic data, detect outliers, and apply underwater-specific augmentations
-- **YOLO Integration**: Seamless integration with YOLO models for underwater object detection
-- **Analytics**: Class balance reporting, dataset statistics, and visualization tools
-- **Evaluation**: Tools to evaluate model performance on underwater imagery
+## Overview
+
+OceanCVBench is a specialized framework for benchmarking computer vision models across diverse underwater conditions. The toolkit helps researchers and practitioners evaluate model performance on standardized datasets representing various marine environments.
+
+Key features:
+- Fine-tune models on a standardized marine dataset
+- Evaluate models across diverse underwater conditions
+- Generate comprehensive performance metrics
+- Compare results with other models via HuggingFace leaderboard
 
 ## Installation
 
