@@ -1,20 +1,38 @@
 # OceanCVBench
 
-A benchmarking toolkit for marine computer vision models.
+[![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-latest-orange)](https://oceancvbench.readthedocs.io)
 
-## Overview
+A benchmarking toolkit for marine computer vision models, focused on standardized evaluation and improvement of underwater object detection and segmentation models.
 
-OceanCVBench is a specialized framework for benchmarking computer vision models across diverse underwater conditions. The toolkit helps researchers and practitioners evaluate model performance on standardized datasets representing various marine environments.
+## Features
 
-Key features:
-- Fine-tune models on a standardized marine dataset
-- Evaluate models across diverse underwater conditions
-- Generate comprehensive performance metrics
-- Compare results with other models via HuggingFace leaderboard
+### Core Features
+
+- **Modular Inference Pipeline**: Streamlined prediction workflow with components for preprocessing, model loading, inference, and postprocessing.
+- **Standardized Dataset Handling**: Convert and validate various formats (YOLO, COCO, VOC, LabelMe) to a consistent structure.
+- **Automated Hyperparameter Optimization**: Bayesian optimization for YOLO models using Optuna.
+- **Marine-Specific Image Augmentation**: Specialized augmentations that simulate underwater conditions like light attenuation, visibility changes, and biofouling.
+- **Class Balance Report**: Comprehensive analysis of dataset class distributions with visualization and recommendations.
+- **Benchmark Evaluation**: Standardized performance evaluation with metrics specific to underwater object detection challenges.
+- **Hugging Face Integration**: Seamless uploading of models and results to the Hugging Face Hub.
+
+### Marine-Specific Tools
+
+- **Underwater Visibility Simulation**: Tools to simulate different turbidity levels and lighting conditions.
+- **Biofouling Simulation**: Add realistic growth patterns to simulate lens fouling.
+- **Marine Object Detection Improvements**: Specialized techniques to enhance detection of camouflaged and partially visible marine species.
 
 ## Installation
 
-### Option 1: Install from source
+### With pip
+
+```bash
+pip install oceancvbench
+```
+
+### From source
 
 ```bash
 # Clone the repository
@@ -25,15 +43,9 @@ cd oceancvbench
 pip install -e .
 ```
 
-### Option 2: Install via pip (Coming soon!)
+## Usage Examples
 
-```bash
-pip install oceancvbench
-```
-
-## Quick Start
-
-### Analyzing Class Balance
+### 1. Analyzing Dataset Quality and Balance
 
 ```python
 from oceancvbench.analytics.class_balance_report import CBR, print_cbr_summary
@@ -45,7 +57,7 @@ report = CBR("path/to/data.yaml")
 print_cbr_summary(report)
 ```
 
-### Handling Underrepresented Classes
+### 2. Handling Underrepresented Classes
 
 ```python
 from oceancvbench.data_preprocessing.underrepresented_classes import (
@@ -67,7 +79,7 @@ if underrepresented:
     )
 ```
 
-### Running Object Detection
+### 3. Running Object Detection
 
 ```python
 from oceancvbench.inference.localize import localize_images
@@ -88,12 +100,51 @@ print(f"Found {len(results)} detections")
 
 ```
 oceancvbench/
-├── analytics/           # Tools for dataset analysis
-├── data_preprocessing/  # Data preparation and augmentation tools
-├── evaluation/          # Model evaluation utilities
-├── inference/           # Model inference tools
-├── utils/               # Common utilities
-└── examples/            # Example scripts
+├── oceancvbench/                    # Main package directory
+│   ├── __init__.py                  # Package initialization
+│   ├── version.py                   # Version information
+│   ├── benchmark.py                 # Main benchmarking script
+│   ├── optimization_config.py       # Hyperparameter optimization config
+│   ├── dataset_handler.py           # Dataset handling utilities
+│   ├── hyperparameter_tuning.py     # Hyperparameter optimization
+│   ├── analytics/                   # Analytics submodule
+│   │   ├── __init__.py
+│   │   └── class_balance_report.py  # Class balance analysis tools
+│   ├── data_preprocessing/          # Data preprocessing submodule
+│   │   ├── __init__.py
+│   │   ├── augmentation.py          # Image augmentation utilities
+│   │   ├── dataset_loader.py        # Dataset loading utilities
+│   │   ├── dataset_stats.py         # Dataset statistics utilities
+│   │   ├── outlier_detection.py     # Outlier detection utilities
+│   │   └── underrepresented_classes.py  # Class balance correction
+│   ├── evaluation/                  # Evaluation submodule
+│   │   ├── __init__.py
+│   │   ├── evaluation.py            # Main evaluation functionality
+│   │   ├── metrics.py               # Performance metrics calculation
+│   │   └── scoring.py               # Scoring functionality
+│   ├── inference/                   # Inference submodule
+│   │   ├── __init__.py
+│   │   ├── model_loader.py          # Model loading utilities
+│   │   ├── preprocessing.py         # Preprocessing for inference
+│   │   ├── inference.py             # Inference execution
+│   │   └── postprocessing.py        # Postprocessing results
+│   ├── training/                    # Training submodule
+│   │   ├── __init__.py
+│   │   └── training_pipeline.py     # Training functionality
+│   └── utils/                       # Utilities submodule
+│       ├── __init__.py
+│       ├── common.py                # Common utilities
+│       └── huggingface_integration.py  # HuggingFace integration
+├── tests/                           # Test directory
+│   ├── __init__.py
+│   ├── test_analytics/
+│   ├── test_data_preprocessing/
+│   ├── test_evaluation/
+│   └── test_inference/
+├── setup.py                         # Package setup script
+├── pyproject.toml                   # Project configuration
+├── README.md                        # Project README (this file)
+└── LICENSE                          # License file
 ```
 
 ## Requirements

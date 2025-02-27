@@ -15,11 +15,11 @@ import time
 import yaml
 from typing import Dict, Any, Optional
 
-from dataset_loader import download_benchmark_datasets
-from training_pipeline import fine_tune_model
+from data_preprocessing.dataset_loader import download_benchmark_datasets
+from oceancvbench.training.training_pipeline import fine_tune_model
 from evaluation import evaluate_model_on_benchmark
-from scoring import calculate_benchmark_scores, save_benchmark_results
-from huggingface_integration import upload_to_leaderboard
+from evaluation.scoring import calculate_benchmark_scores, save_benchmark_results
+from utils.huggingface_integration import upload_to_leaderboard
 
 # Configure logging
 logging.basicConfig(

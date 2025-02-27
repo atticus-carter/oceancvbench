@@ -39,12 +39,14 @@ from . import analytics
 from . import data_preprocessing
 from . import evaluation
 from . import inference
+from . import training
 
 __all__ = [
     'analytics',
     'data_preprocessing',
     'evaluation',
     'inference',
+    'training',
     '__version__',
     'is_debug_mode',
     'set_debug_mode',

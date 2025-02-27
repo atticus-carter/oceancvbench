@@ -168,7 +168,7 @@ def upload_to_leaderboard(
         return False
     
     # Import the scoring module to generate a leaderboard entry
-    from scoring import generate_leaderboard_entry
+    from evaluation.scoring import generate_leaderboard_entry
     
     # Create the leaderboard entry
     entry = generate_leaderboard_entry(benchmark_scores, model_name)
