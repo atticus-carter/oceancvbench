@@ -26,7 +26,7 @@ A benchmarking toolkit for marine computer vision models, focused on standardize
 
 ## Installation
 
-### With pip
+### With pip (Coming soon!)
 
 ```bash
 pip install oceancvbench
